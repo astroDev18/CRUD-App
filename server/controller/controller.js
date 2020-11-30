@@ -1,33 +1,34 @@
 var Userdb = require('../model/model');
 
-// Create and save new user
-exports.create = (req, res) => {
-    // Validate Request
-    if (!req.body) {
-        res.status(400).send({message: "Message content can't be empty!"})
+// create and save new user
+exports.create = (req,res)=>{
+    // validate request
+    if(!req.body){
+        res.status(400).send({ message : "Content can not be emtpy!"});
+        return;
     }
 
-    // New User
-    const user = new Userdb ({
-        name: req.body.name,
-        email: req.body.email,
+    // new user
+    const user = new Userdb({
+        name : req.body.name,
+        email : req.body.email,
         gender: req.body.gender,
-        status: req.body.status
+        status : req.body.status
     })
 
-    // Save user in the DataBase
+    // save user in the database
     user
         .save(user)
         .then(data => {
-        res.send(data)
-    })
-        .catch(err => {
-            res.status(500).send ({
-              message:err.message || "Some error occurred while creating a create operation"
-            })
+            //res.send(data)
+            res.redirect('/assets/add-user');
         })
+        .catch(err =>{
+            res.status(500).send({
+                message : err.message || "Some error occurred while creating a create operation"
+            });
+        });
 }
-
 // Retrieve and return all users or retrieve and return a single user
 exports.find = (req, res) => {
 
@@ -70,8 +71,7 @@ exports.update = (req, res) => {
             if(!data) {
             res.status(404).send({ message: `Cannot update user with ${id}. Perhaps user is not found.`})
             } else {
-                // res.send(data)
-                res.redirect("/add-user")
+                res.send(data)
             }
             })
         .catch(err => {
