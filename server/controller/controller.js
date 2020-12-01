@@ -21,7 +21,7 @@ exports.create = (req,res)=>{
         .save(user)
         .then(data => {
             //res.send(data)
-            res.redirect('https://astrousers.herokuapp.com/add-user');
+            res.redirect('/add-user');
         })
         .catch(err =>{
             res.status(500).send({
