@@ -21,7 +21,7 @@ exports.create = (req,res)=>{
         .save(user)
         .then(data => {
             //res.send(data)
-            res.redirect('/assets/add-user');
+            res.redirect('/add-user');
         })
         .catch(err =>{
             res.status(500).send({
@@ -79,25 +79,24 @@ exports.update = (req, res) => {
         })
 }
 
-// Delete a user with specified userID in the request
 
-exports.delete = (req, res) => {
+// Delete a user with specified user id in the request
+exports.delete = (req, res)=>{
     const id = req.params.id;
 
     Userdb.findByIdAndDelete(id)
         .then(data => {
-            if(!data) {
-                res.status(404).send({ message: `Cannot Delete user with id ${id}. Check if id is correct.`})
-            } else {
+            if(!data){
+                res.status(404).send({ message : `Cannot Delete with id ${id}. Maybe id is wrong`})
+            }else{
                 res.send({
-                    message: "User was deleted successfully!"
+                    message : "User was deleted successfully!"
                 })
             }
         })
-        .catch(err => {
+        .catch(err =>{
             res.status(500).send({
-                message: "Could not delete user with id=" + id
-            })
-        })
+                message: "Could not delete User with id=" + id
+            });
+        });
 }
-

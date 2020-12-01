@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow&family=PT+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata&display=swap');
 
 :root{
     --dark: #2b2d42;
@@ -13,9 +14,13 @@
     box-sizing: border-box;
 }
 
+body {
+    background: ghostwhite;
+}
+
 a {
     text-decoration: none;
-    font-family: 'PT Sans', sans-serif;
+    font-family: 'Inconsolata', sans-serif;
 }
 
 .container{
@@ -24,7 +29,7 @@ a {
 }
 
 .nav-brand{
-    font-size: 1.5em;
+    font-size: 2em;
     font-weight: bold;
 }
 
@@ -61,12 +66,14 @@ a {
 .text-gradient{
     background: linear-gradient(to right, #8e2de2, #4a00e0);
     -webkit-background-clip: text;
-    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 #header nav{
-    background-color: #06d6a0;
+    background: #E0EAFC;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #CFDEF3, #E0EAFC);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #CFDEF3, #E0EAFC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
     padding: 1em 0;
     width: 100%;
 }
@@ -104,7 +111,7 @@ table{
 }
 
 .table tr:hover{
-    background-color:#06d6a0 ;
+    background-color:#0082c8 ;
 }
 
 .table tr:hover td > a{
