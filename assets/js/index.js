@@ -30,7 +30,7 @@ if(window.location.pathname === "/"){
         var id = $(this).attr("data-id")
 
         var request = {
-            "url" : `https://astrousers.herokuapp.com/api/users/${id}`,
+            "url" : `api/users/${id}`,
             "method" : "DELETE"
         }
 
