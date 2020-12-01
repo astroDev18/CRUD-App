@@ -14,7 +14,7 @@ $("#update_user").submit(function(event){
 
 
     var request = {
-        "url" : `https://astrousers.herokuapp.com/api/users/${data.id}`,
+        "url" : `/api/users/${data.id}`,
         "method" : "PUT",
         "data" : data
     }
