@@ -3,7 +3,7 @@ const response = require("express");
 
 exports.homeRoutes = (req, res) => {
     // Make a get request to api/users
-    axios.get('process.env/api/users')
+    axios.get('https://astrousers.herokuapp.com/api/users')
         .then(function(response) {
             console.log(response.data);
             res.render("index", { users: response.data});
@@ -18,7 +18,7 @@ exports.add_user = (req, res) => {
 }
 
 exports.update_user = (req, res) =>{
-    axios.get('process.env/api/users', { params : { id : req.query.id }})
+    axios.get('https://astrousers.herokuapp.com/api/users', { params : { id : req.query.id }})
         .then(function(userdata){
             res.render("update_user", { user : userdata.data})
         })
